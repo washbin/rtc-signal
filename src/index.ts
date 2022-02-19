@@ -1,7 +1,9 @@
 import {WebSocket, WebSocketServer} from 'ws';
 import {randomUUID} from 'crypto';
 
-const ws = new WebSocketServer({port: 9090});
+const ws = new WebSocketServer({
+  port: parseInt(process.env.PORT as string) || 8080,
+});
 
 let clientsArray: Array<{connection: WebSocket; id: string}> = [];
 
